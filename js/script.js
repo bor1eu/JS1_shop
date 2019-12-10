@@ -33,8 +33,8 @@ let catalog = {
                 <div class="catalog-product">
                     <img src="https://placehold.it/300x200" class="catalog-product-img" alt="Photo" width="300" height="200">
                     <span class="catalog-product-title">${item.product_name}</span>
-                    <span class="catalog-product-price">${item.price}</span>
-                    <button class="catalog-product-btn" onclick="cart.addProduct (${item.product_id})">Купить</button>
+                    <span class="catalog-product-price">$&nbsp;${item.price}</span>
+                    <button class="catalog-product-btn" onclick="cart.addProduct (${item.product_id})">buy</button>
                 </div>
             `
         })
@@ -47,6 +47,7 @@ let cart = {
     total: 0,
     sum: 0,
     container: ".cart",
+    chkbox: "cartIsVisible",
     addProduct (product) {
         let id = product
         //нарушение инкапсуляции (Вообще так не делаем, но пока делаем)
@@ -96,7 +97,7 @@ let cart = {
                 <div class="cart-item">
                     <img src="https://placehold.it/300x200" class="cart-item-img" alt="Photo" width="30" height="20">
                     <span class="cart-item-title">${item.product_name}</span>
-                    <span class="cart-item-price">${item.price}</span>
+                    <span class="cart-item-price">$&nbsp;${item.price}</span>
                     <span class="cart-item-quantity">${item.quantity}</span>
                     <button class="cart-item-remove-btn" onclick="cart.deleteProduct (${item.product_id})">Удалить</button>
                 </div>
@@ -107,9 +108,11 @@ let cart = {
         <button class="cart-hide-btn" onClick="cart.hideCart ()">Скрыть корзину</button>
         `
         document.querySelector(this.container).innerHTML = str
+        document.getElementById(this.chkbox).checked = true
     },
     hideCart () {
         document.querySelector(this.container).innerHTML = ""
+        document.getElementById(this.chkbox).checked = false
     }
 }
 catalog.construct ()

@@ -9,50 +9,40 @@
   align-items: center;
   flex-wrap: nowrap;
   margin: 0 auto;
-  padding: 40px;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffc578+0,fb9d23+100;Orange+3D+%233 */
-  background: #ffc578;
-  /* Old browsers */
-  background: -moz-linear-gradient(left, #ffc578 0%, #fb9d23 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #ffc578 0%, #fb9d23 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #ffc578 0%, #fb9d23 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc578', endColorstr='#fb9d23', GradientType=1);
-  /* IE6-9 */
+  padding: 20px;
+  background-color: #aaa;
+  border: 10px outset #ccc;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 24px;
 }
 .header-logo-lnk {
   display: inline-block;
-  padding: 20px;
+  padding: 0 10px 0 10px;
   text-decoration: none;
   color: darkcyan;
-  border-radius: 10px;
+  border-radius: 25px;
   border: 1px solid transparent;
 }
 .header-logo-lnk:hover {
   cursor: pointer;
-  box-shadow: 0 0 4px 1px #888;
+  box-shadow: 0 0 4px 3px #888;
 }
 .header-logo-lnk:active {
-  box-shadow: inset 0 0 4px 1px #888;
+  box-shadow: inset 0 0 4px 3px #888;
 }
 .header-logo-lnk:visited {
   color: darkcyan;
 }
 .header-logo-text {
   font-family: 'Black Ops One', cursive;
-  font-size: 60px;
-  font-weight: 800;
+  font-size: 50px;
 }
 .header-form {
-  padding: 10px;
+  padding: 10px 20px;
 }
 .header-form:focus-within {
-  box-shadow: 0 0 4px 1px #888;
-  border-radius: 10px;
+  box-shadow: 0 0 4px 3px #888;
+  border-radius: 20px;
 }
 .header-form-input {
   width: 150px;
@@ -61,15 +51,15 @@
   outline: none;
   border: none;
   border-bottom: 2px solid darkcyan;
-  color: ghostwhite;
+  color: yellow;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 24px;
 }
 .header-form-btn {
-  height: 40px;
+  padding: 5px 20px;
   color: darkcyan;
   background-color: transparent;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px solid transparent;
   outline: none;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -77,33 +67,32 @@
 }
 .header-form-btn:hover {
   cursor: pointer;
-  box-shadow: 0 0 4px 1px #888;
+  box-shadow: 0 0 4px 3px #888;
 }
 .header-form-btn:active {
-  box-shadow: inset 0 0 4px 1px #888;
+  box-shadow: inset 0 0 4px 3px #888;
 }
 .header-nav-link {
   width: 90px;
-  height: 70px;
-  padding: 20px;
+  padding: 5px 20px;
   text-decoration: none;
   color: darkcyan;
-  border-radius: 10px;
+  border-radius: 20px;
+  margin: 0 20px 0 0;
 }
 .header-nav-link:hover {
   cursor: pointer;
-  box-shadow: 0 0 4px 1px #888;
+  box-shadow: 0 0 4px 3px #888;
 }
 .header-nav-link:active {
-  box-shadow: inset 0 0 4px 1px #888;
+  box-shadow: inset 0 0 4px 3px #888;
 }
 .header-nav-cart-btn {
-  height: 70px;
   width: 90px;
-  padding: 20px;
+  padding: 5px 20px;
   color: darkcyan;
   background-color: transparent;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px solid transparent;
   outline: none;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -111,17 +100,26 @@
 }
 .header-nav-cart-btn:hover {
   cursor: pointer;
-  box-shadow: 0 0 4px 1px #888;
+  box-shadow: 0 0 4px 3px #888;
 }
 .header-nav-cart-btn:active {
-  box-shadow: inset 0 0 4px 1px #888;
+  box-shadow: inset 0 0 4px 3px #888;
 }
-.catalog {
+.header-nav-cart-chkbox {
+  display: none;
+}
+.header-nav-cart-chkbox:checked ~ .cart {
+  display: block;
+}
+.main {
   width: 100%;
   box-sizing: border-box;
   max-width: 1280px;
   margin: 0 auto;
-  background-color: lightskyblue;
+  background-image: url('../img/bg-main.png');
+  position: relative;
+}
+.catalog {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -139,7 +137,9 @@
   align-items: center;
   padding: 10px;
   margin-bottom: 40px;
-  background-color: cornflowerblue;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid #fff;
 }
 .catalog-product-img {
   margin-bottom: 20px;
@@ -148,7 +148,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 36px;
   font-weight: bold;
-  color: black;
+  color: grey;
   margin-bottom: 0;
 }
 .catalog-product-price {
@@ -162,13 +162,55 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-weight: 400;
+  padding: 5px 20px;
+  color: darkcyan;
+  background-color: transparent;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  outline: none;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.catalog-product-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 4px 3px #888;
+}
+.catalog-product-btn:active {
+  box-shadow: inset 0 0 4px 3px #888;
+}
+.footer {
+  width: 100%;
+  max-width: 1280px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 10px 30px;
+  background-color: #333;
+  text-align: right;
+}
+.footer-text {
+  color: #888;
+  font-family: Arial Narrow, sans-serif;
+  font-size: 16px;
 }
 .cart {
-  width: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 75px;
+  width: 300px;
   box-sizing: border-box;
-  max-width: 1280px;
-  margin: 0 auto;
-  background-color: cadetblue;
+  background-color: #fff;
+  border-radius: 25px;
+  border-top-right-radius: 0;
+}
+.cart:before {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  content: "";
+  border-top: 30px solid transparent;
+  border-right: 30px solid #fff;
 }
 .cart-item {
   font-family: Arial, Helvetica, sans-serif;
