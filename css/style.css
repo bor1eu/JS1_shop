@@ -159,9 +159,7 @@
   margin-bottom: 20px;
 }
 .catalog-product-btn {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
-  font-weight: 400;
+  width: 90px;
   padding: 5px 20px;
   color: darkcyan;
   background-color: transparent;
