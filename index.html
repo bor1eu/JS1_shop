@@ -5,13 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>MyShop</title>
+    <title>Brandshop</title>
 </head>
 <body>
-    <div class="products">
+    <header class="header">
+        <div class="header-logo">
+            <a href="#" class="header-logo-lnk">
+                <span class="header-logo-text">IT shop</span>
+            </a>
+        </div>
+        <form action="#" class="header-form">
+            <input type="text" class="header-form-input" placeholder="search">
+            <button class="header-form-btn">Search</button>
+        </form>
+        <nav class="header-nav">
+            <a class="header-nav-link">Main</a>
+            <button class="header-nav-cart-btn" onclick="cart.showCart ()">Cart</button>
+        </nav>
+    </header>
+    <main class="catalog">
 
-    </div>
-    <button class="cart-show-btn" onclick="cart.showCart ()">Корзина</button>
+    </main>
+    <footer class="footer">
+        <span class="footer-text">&copy; 2019 GB & GB</span>
+    </footer>
     <div class="cart">
 
     </div>

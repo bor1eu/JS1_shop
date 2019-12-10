@@ -6,7 +6,7 @@ let IDS = [0, 1, 2, 3, 4]
 
 let catalog = {
     items: [],
-    container: '.products',
+    container: '.catalog',
     construct () {
         this._init () //_ - это обозначение инкапсулированного метода
     },
@@ -30,11 +30,11 @@ let catalog = {
         let str = ''
         this.items.forEach (item => {
             str += `
-                <div class="product">
-                    <img src="https://placehold.it/300x200" class="product-img" alt="Photo" width="300" height="200">
-                    <span class="product-title">${item.product_name}</span>
-                    <span class="product-price">${item.price}</span>
-                    <button class="product-btn" onclick="cart.addProduct (${item.product_id})">Купить</button>
+                <div class="catalog-product">
+                    <img src="https://placehold.it/300x200" class="catalog-product-img" alt="Photo" width="300" height="200">
+                    <span class="catalog-product-title">${item.product_name}</span>
+                    <span class="catalog-product-price">${item.price}</span>
+                    <button class="catalog-product-btn" onclick="cart.addProduct (${item.product_id})">Купить</button>
                 </div>
             `
         })

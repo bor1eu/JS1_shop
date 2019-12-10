@@ -1,127 +1,227 @@
-.products {
-    width: 100%;
-    box-sizing: border-box;
-    max-width: 1280px;
-    margin: 0 auto;
-    background-color: lightskyblue;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 40px;
+@import url('https://fonts.googleapis.com/css?family=Black+Ops+One|Erica+One|Fascinate|Fascinate+Inline|Modak|Passion+One:900|Sigmar+One|Sniglet:800|Sonsie+One&display=swap');
+.header {
+  width: 100%;
+  max-width: 1280px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  padding: 40px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffc578+0,fb9d23+100;Orange+3D+%233 */
+  background: #ffc578;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #ffc578 0%, #fb9d23 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #ffc578 0%, #fb9d23 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #ffc578 0%, #fb9d23 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc578', endColorstr='#fb9d23', GradientType=1);
+  /* IE6-9 */
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 24px;
 }
-
-.product {
-    min-width: 300px;
-    max-width: 400px;
-    width: 30%;
-    box-sizing: border-box;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 40px;
-    background-color: cornflowerblue;
+.header-logo-lnk {
+  display: inline-block;
+  padding: 20px;
+  text-decoration: none;
+  color: darkcyan;
+  border-radius: 10px;
+  border: 1px solid transparent;
 }
-
-.product-img {
-    margin-bottom: 20px;
+.header-logo-lnk:hover {
+  cursor: pointer;
+  box-shadow: 0 0 4px 1px #888;
 }
-
-.product-title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 36px;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 0;
+.header-logo-lnk:active {
+  box-shadow: inset 0 0 4px 1px #888;
 }
-
-.product-price {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
-    font-weight: 800;
-    color: yellow;
-    margin-bottom: 20px;
+.header-logo-lnk:visited {
+  color: darkcyan;
 }
-
-.product-btn {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    font-weight: 400;
+.header-logo-text {
+  font-family: 'Black Ops One', cursive;
+  font-size: 60px;
+  font-weight: 800;
 }
-
-.cart-show-btn {
-    display: block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-    margin: 20px auto;
+.header-form {
+  padding: 10px;
 }
-
+.header-form:focus-within {
+  box-shadow: 0 0 4px 1px #888;
+  border-radius: 10px;
+}
+.header-form-input {
+  width: 150px;
+  height: 40px;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid darkcyan;
+  color: ghostwhite;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 24px;
+}
+.header-form-btn {
+  height: 40px;
+  color: darkcyan;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  outline: none;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 24px;
+}
+.header-form-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 4px 1px #888;
+}
+.header-form-btn:active {
+  box-shadow: inset 0 0 4px 1px #888;
+}
+.header-nav-link {
+  width: 90px;
+  height: 70px;
+  padding: 20px;
+  text-decoration: none;
+  color: darkcyan;
+  border-radius: 10px;
+}
+.header-nav-link:hover {
+  cursor: pointer;
+  box-shadow: 0 0 4px 1px #888;
+}
+.header-nav-link:active {
+  box-shadow: inset 0 0 4px 1px #888;
+}
+.header-nav-cart-btn {
+  height: 70px;
+  width: 90px;
+  padding: 20px;
+  color: darkcyan;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  outline: none;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 24px;
+}
+.header-nav-cart-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 4px 1px #888;
+}
+.header-nav-cart-btn:active {
+  box-shadow: inset 0 0 4px 1px #888;
+}
+.catalog {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: lightskyblue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 40px;
+}
+.catalog-product {
+  min-width: 300px;
+  max-width: 400px;
+  width: 30%;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 40px;
+  background-color: cornflowerblue;
+}
+.catalog-product-img {
+  margin-bottom: 20px;
+}
+.catalog-product-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 0;
+}
+.catalog-product-price {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: yellow;
+  margin-bottom: 20px;
+}
+.catalog-product-btn {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+}
 .cart {
-    width: 100%;
-    box-sizing: border-box;
-    max-width: 1280px;
-    margin: 0 auto;
-    background-color: cadetblue;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: cadetblue;
 }
-
 .cart-item {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
 }
-
 .cart-item-img {
-    display: inline-block;
-    margin-right: 40px;
-    line-height: 30px;
-    vertical-align: middle;
+  display: inline-block;
+  margin-right: 40px;
+  line-height: 30px;
+  vertical-align: middle;
 }
-.cart-item-title {
-    display: inline-block;
-    min-width: 200px;
-    margin-right: 40px;
-    color: black;
-    line-height: 30px;
-    vertical-align: middle;
+.cart-item-item {
+  display: inline-block;
+  min-width: 200px;
+  margin-right: 40px;
+  color: black;
+  line-height: 30px;
+  vertical-align: middle;
 }
 .cart-item-price {
-    display: inline-block;
-    min-width: 100px;
-    margin-right: 40px;
-    font-weight: 800;
-    color: yellow;
-    line-height: 30px;
-    vertical-align: middle;
+  display: inline-block;
+  min-width: 100px;
+  margin-right: 40px;
+  font-weight: 800;
+  color: yellow;
+  line-height: 30px;
+  vertical-align: middle;
 }
 .cart-item-quantity {
-    display: inline-block;
-    min-width: 100px;
-    margin-right: 40px;
-    font-weight: 800;
-    color: goldenrod;
-    line-height: 30px;
-    vertical-align: middle;
+  display: inline-block;
+  min-width: 100px;
+  margin-right: 40px;
+  font-weight: 800;
+  color: goldenrod;
+  line-height: 30px;
+  vertical-align: middle;
 }
 .cart-item-remove-btn {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    vertical-align: middle;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  vertical-align: middle;
 }
-
 .cart-total {
-    display: block;
-    color: red;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    font-weight: 800;
+  display: block;
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
 }
-
 .cart-hide-btn {
-    display: block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    font-weight: 400;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
 }
