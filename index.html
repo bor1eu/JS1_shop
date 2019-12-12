@@ -20,16 +20,21 @@
         </form>
         <nav class="header-nav">
             <a class="header-nav-link">Main</a>
-            <button class="header-nav-cart-btn" onclick="cart.showCart ()">Cart</button>
-            <input type="checkbox" name="cartIsVisible" id="cartIsVisible" class="header-nav-cart-chkbox">
+            <button class="header-nav-cart-btn" name="cart-btn" onclick="cart.toggleCart ()">Cart</button>
         </nav>
     </header>
     <main class="main">
         <div class="catalog">
 
         </div>
+        <input type="checkbox" name="cartIsVisible" id="cartIsVisible" class="cart-chkbox">
         <div class="cart">
+            <div class="cart-products">
 
+            </div>
+            <div class="cart-total">
+                <span class="cart-total-text"></span>
+            </div>
         </div>
     </main>
     <footer class="footer">
