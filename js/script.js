@@ -69,10 +69,10 @@ let cart = {
             <div class="cart-item">
                 <img src="https://placehold.it/300x200" class="cart-item-img" alt="Photo" width="45" height="30">
                 <span class="cart-item-title">${item.product_name}</span>
-                <span class="cart-item-price">$ ${item.price}</span>
                 <button class="cart-item-adjust-btn" onclick="cart.productCount (${item.product_id}, -1)">-</button>
                 <span class="cart-item-quantity">${item.quantity}</span>
                 <button class="cart-item-adjust-btn" onclick="cart.productCount (${item.product_id}, 1)">+</button>
+                <span class="cart-item-price">$ ${item.price}</span>
             </div>
         `
     },
