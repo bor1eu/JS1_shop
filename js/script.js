@@ -6,7 +6,7 @@ let IDS = [0, 1, 2, 3, 4]
 
 let catalog = {
     items: [],
-    container: '.products',
+    container: '.catalog',
     construct () {
         this._init () //_ - это обозначение инкапсулированного метода
     },
@@ -26,17 +26,20 @@ let catalog = {
             product_id: IDS [index]
         }
     },
+    _createHTML (item) {
+        return `
+        <div class="catalog-product">
+            <img src="https://placehold.it/300x200" class="catalog-product-img" alt="Photo" width="300" height="200">
+            <span class="catalog-product-title">${item.product_name}</span>
+            <span class="catalog-product-price">$ ${item.price}</span>
+            <button class="catalog-product-btn" onclick="cart.productCount (${item.product_id},1)">buy</button>
+        </div>
+        `
+    },
     render () {
         let str = ''
         this.items.forEach (item => {
-            str += `
-                <div class="product">
-                    <img src="https://placehold.it/300x200" class="product-img" alt="Photo" width="300" height="200">
-                    <span class="product-title">${item.product_name}</span>
-                    <span class="product-price">${item.price}</span>
-                    <button class="product-btn" onclick="cart.addProduct (${item.product_id})">Купить</button>
-                </div>
-            `
+            str += catalog._createHTML (item)
         })
         document.querySelector(this.container).innerHTML = str
     }
@@ -47,39 +50,76 @@ let cart = {
     total: 0,
     sum: 0,
     container: ".cart",
-    addProduct (product) {
+    chkbox: "cartIsVisible",
+    _init () {
+        strTotal = `
+        <span class="cart-total-text">Пусто</span>
+        `
+        document.querySelector(this.container + '-total').innerHTML = strTotal
+    },
+    _createNewProduct (index) {
+        return {
+            product_name: PRODUCTS_NAMES [index],
+            price: PRICES [index],
+            product_id: IDS [index]
+        }
+    },
+    _createHTML (item) {
+        return `
+            <div class="cart-item">
+                <img src="https://placehold.it/300x200" class="cart-item-img" alt="Photo" width="45" height="30">
+                <span class="cart-item-title">${item.product_name}</span>
+                <button class="cart-item-adjust-btn" onclick="cart.productCount (${item.product_id}, -1)">-</button>
+                <span class="cart-item-quantity">${item.quantity}</span>
+                <button class="cart-item-adjust-btn" onclick="cart.productCount (${item.product_id}, 1)">+</button>
+                <span class="cart-item-price">$ ${item.price}</span>
+            </div>
+        `
+    },
+    productCount (product, step) {
         let id = product
-        //нарушение инкапсуляции (Вообще так не делаем, но пока делаем)
-        let prod = catalog._createNewProduct (product)
+        let prod = this._createNewProduct (product)
+        let strNew = ``
+        let strOld = ``
+        let el = document.querySelector(this.container + '-products')
         
         let find = this.items.find (product => product.product_id === id)
-        if (find) {
-            find.quantity++
+        if (find && (find.quantity + step > 0)) {
+            strOld = this._createHTML (find)
+            find.quantity+=step
+            strNew = this._createHTML (find)
+            el.innerHTML = el.innerHTML.replace (strOld, strNew)
+        } else if (find && (find.quantity + step === 0)) {
+            strOld = this._createHTML (find)
+            el.innerHTML = el.innerHTML.replace (strOld, ``)
+            this.items.splice(this.items.indexOf(find), 1)
         } else {
             prod.quantity = 1
             this.items.push (prod)
+            strNew = this._createHTML (prod)
+            el.insertAdjacentHTML ('beforeend', strNew)
         }
         this.calculateSum ()
         this._checkTotal ()
         // cart.items.push (Object.assign ({}, find, {quantity: 1}))
     },
-    deleteProduct (product) {
-        if (this.items[product].quantity > 1) {
-            --this.items[product].quantity
-        } else {
-            this.items.splice(product, 1)
-        }
-        this.calculateSum ()
-        this._checkTotal ()
-        this.showCart ()
-        return false
-    },
     calculateSum () {
         let result = 0
-        this.items.forEach (el => {
-            result += el.price * el.quantity
-        })
-        this.sum = result
+        let strTotal;
+        if (this.items.length !== 0) {
+            this.items.forEach (el => {
+                result += el.price * el.quantity
+            })
+            this.sum = result
+            strTotal = `
+                <span class="cart-total-text">Итого:</span><span class="cart-total-price">$ ${this.sum}</span>
+            `
+        } else {
+            strTotal = `
+                <span class="cart-total-text">Пусто</span>
+            `
+        }
+        document.querySelector(this.container + '-total').innerHTML = strTotal
         return false
     },
     _checkTotal () {
@@ -89,27 +129,11 @@ let cart = {
         })
         this.total = result
     },
-    showCart () {
-        let str = ""
-        this.items.forEach (item => {
-            str += `
-                <div class="cart-item">
-                    <img src="https://placehold.it/300x200" class="cart-item-img" alt="Photo" width="30" height="20">
-                    <span class="cart-item-title">${item.product_name}</span>
-                    <span class="cart-item-price">${item.price}</span>
-                    <span class="cart-item-quantity">${item.quantity}</span>
-                    <button class="cart-item-remove-btn" onclick="cart.deleteProduct (${item.product_id})">Удалить</button>
-                </div>
-            `
-        })
-        str += `
-        <span class="cart-total">Итого: ${this.sum}</span>
-        <button class="cart-hide-btn" onClick="cart.hideCart ()">Скрыть корзину</button>
-        `
-        document.querySelector(this.container).innerHTML = str
-    },
-    hideCart () {
-        document.querySelector(this.container).innerHTML = ""
+    toggleCart () {
+        let el = document.getElementById(this.chkbox)
+        el.checked = !el.checked
     }
 }
+
 catalog.construct ()
+cart._init ()
